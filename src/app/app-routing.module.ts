@@ -5,6 +5,18 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'pag-produto',
+    loadChildren: () => import('./pag-produto/pag-produto.module').then( m => m.PagProdutoPageModule)
+  },
+  {
+    path: 'anuncios',
+    loadChildren: () => import('./anuncios/anuncios.module').then( m => m.AnunciosPageModule)
+  },
+  {
+    path: 'add-produto',
+    loadChildren: () => import('./add-produto/add-produto.module').then( m => m.AddProdutoPageModule)
   }
 ];
 @NgModule({
