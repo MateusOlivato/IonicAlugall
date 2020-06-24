@@ -17,6 +17,22 @@ const routes: Routes = [
   {
     path: 'add-produto',
     loadChildren: () => import('./add-produto/add-produto.module').then( m => m.AddProdutoPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'cadastro',
+    loadChildren: () => import('./cadastro/cadastro.module').then( m => m.CadastroPageModule)
+  },
+  {
+    path: 'alugar',
+    loadChildren: () => import('./alugar/alugar.module').then( m => m.AlugarPageModule)
+  },
+  {
+    path: 'configuracoes',
+    loadChildren: () => import('./configuracoes/configuracoes.module').then( m => m.ConfiguracoesPageModule)
   }
 ];
 @NgModule({
