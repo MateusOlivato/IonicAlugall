@@ -1,40 +1,86 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
     <ion-title>
-      Página Inicial
+      Início
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-<ion-card class="carousel">
-  <ion-slides>
- 
-    <ion-slide>
-      <div class="slide">
-        <img class="imagem" src="https://images-americanas.b2w.io/spacey/2018/12/21/martelo1.jpg"/>
-        <h5>Martelo do meu avô</h5>
-      </div>
-    </ion-slide>
+  <h4>Destaques</h4>
+<ion-grid>
+  <ion-row class="ion-justify-content-start">
+          <ion-col  size="4" > 
+            <ion-card>
+              
+                <ion-card-title >Produto 1</ion-card-title>
+                <img src="https://madeinbrazil.fbitsstatic.net/img/p/guitarra-strato-tg530-woodstock-tagima-azul-laked-placid-blue-502-87267/273752.jpg?w=800&h=800&v=no-change"/>
+                
+                <ion-card-subtitle>
+                  <ion-icon name="person-circle-outline"></ion-icon>
+                  <section>
+                  <ion-button><ion-icon name="navigate-circle"></ion-icon>Ver</ion-button>
+                 
 
-    <ion-slide>
-      <div class="slide">
-        
-      <img class="imagem" src="data:image/jpeg;base64,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"/>
-       
-      <h5>Espelho usado</h5>
-     
-    </div>
-    </ion-slide>
+                  </section>
 
-    <ion-slide>
-      <div class="slide">
-      <img class="imagem" src="https://www.dutramaquinas.com.br/view/img/produtos/alta/172845_escada_de_fibra_de_vidro_8_degraus_2_40_m_modelo_americana_dupla_esc08240.jpg"/>
-    <h5>Escada</h5>
-    </div>
-    </ion-slide>
+                </ion-card-subtitle>
+                
+                <ion-card-content>
+                  
+                  
+                </ion-card-content>
+              
+            
+              </ion-card>
+          </ion-col  >
+          <ion-col  size="4">
+            <ion-card>
+              <ion-card-title >Produto 2</ion-card-title>
+                <img src="https://madeinbrazil.fbitsstatic.net/img/p/guitarra-strato-tg530-woodstock-tagima-azul-laked-placid-blue-502-87267/273752.jpg?w=800&h=800&v=no-change"/>
+                
+                <ion-card-subtitle>
+                  <ion-icon name="person-circle-outline"></ion-icon>
+                  <section>
+                  <ion-button><ion-icon name="navigate-circle"></ion-icon>Ver</ion-button>
+                 
 
-  </ion-slides>
-</ion-card>
-  
+                  </section>
+                  
+                </ion-card-subtitle>
+              
+              
+                
+              <ion-card-content>
+                  
+                </ion-card-content>
+             
+              </ion-card>
+          </ion-col >
+          <ion-col  size="4" >
+           <ion-card>
+             <ion-card-title >Produto 3</ion-card-title>
+                <img src="https://madeinbrazil.fbitsstatic.net/img/p/guitarra-strato-tg530-woodstock-tagima-azul-laked-placid-blue-502-87267/273752.jpg?w=800&h=800&v=no-change"/>
+                
+                <ion-card-subtitle>
+                  <ion-icon name="person-circle-outline"></ion-icon>
+                  <section>
+                  <ion-button><ion-icon name="navigate-circle"></ion-icon>Ver</ion-button>
+                  
+
+                  </section>
+
+                </ion-card-subtitle>
+              
+                
+                <ion-card-content>
+                  
+                  
+                </ion-card-content>
+              
+             
+              </ion-card>
+          </ion-col>
+  </ion-row>
+</ion-grid>
 </ion-content>
