@@ -74,6 +74,8 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  
 }
 
 @media (prefers-color-scheme: dark) {
@@ -145,7 +147,49 @@
     --ion-color-light-contrast-rgb: 255,255,255;
     --ion-color-light-shade: #1e2023;
     --ion-color-light-tint: #383a3e;
+
+    --theme-color: #284A99;
+  --theme-yellow: #EBE952;
+  --theme-gray: #99979C;
+
   }
+
+:root[mode=ios],
+:root[mode=md] {
+  --ion-font-family: "Heebo-Regular" !important;
+  font-family: "Heebo-Regular", "Times New Roman", serif !important;
+}
+
+  // Font include 
+@font-face{
+  font-family: 'Heebo-Black';
+  src: url('../assets/fonts/Heebo/Heebo-Black.ttf');
+}
+
+@font-face{
+  font-family: 'Heebo-Bold';
+  src: url('../assets/fonts/Heebo/Heebo-Bold.ttf');
+}
+
+@font-face{
+  font-family: 'Heebo-ExtraBold';
+  src: url('../assets/fonts/Heebo/Heebo-ExtraBold.ttf');
+}
+
+@font-face{
+  font-family: 'Heebo-Light';
+  src: url('../assets/fonts/Heebo/Heebo-Light.ttf');
+}
+@font-face{
+  font-family: 'Heebo-Medium';
+  src: url('../assets/fonts/Heebo/Heebo-Medium.ttf');
+}
+@font-face{
+  font-family: 'Heebo-Regular';
+  src: url('../assets/fonts/Heebo/Heebo-Regular.ttf');
+}
+
+
 
   /*
    * iOS Dark Theme
