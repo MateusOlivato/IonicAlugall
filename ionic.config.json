@@ -1,5 +1,7 @@
 {
   "name": "IonicAlugall",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
