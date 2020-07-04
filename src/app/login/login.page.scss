@@ -38,7 +38,8 @@
 [big-heading]{
     font-family:"Heebo-Bold" !important;
     font-size: 30px !important;
-    color: var(--theme-yellow);
+    color: #FAF62F;
+    margin-left: 10px;
 }
 
 [small-heading]{
@@ -46,7 +47,7 @@
     margin-left: auto;
     padding-right: 40px;
     font-size:15px;
-    color: var(--theme-yellow);
+    color: var(--theme-yellow);    
 }
 
 ion-label{
@@ -92,9 +93,18 @@ ion-label{
     opacity: .8;
     font-size: 13px;
     display: block;
+    margin-left: 2%;
 }
 
 ion-content{
 
     --ion-background-color:#ffffff;
+}
+
+ion-icon{
+    color: #5C5C5C;
+}
+
+ion-button{
+    border: none;
 }
