@@ -22,11 +22,26 @@
         <ion-item transparent>
           <ion-icon name="person"></ion-icon>
           <ion-input formControlName="email" type="email" placeholder="Digite seu e-mail"></ion-input>
+
+          <ng-container *ngFor="let erro of mensagens_validacao.email">
+            <span
+              *ngIf="formLogin.get('email').hasError(erro.tipo) && (formLogin.get('email').dirty || 
+              formLogin.get('email').touched)" class="msg-erro">
+              {{erro.mensagem}}
+            </span>
+          </ng-container>
         </ion-item>
 
         <ion-item transparent>
           <ion-icon name="lock-closed"></ion-icon>
           <ion-input formControlName="senha" type="password" placeholder="Digite sua senha"></ion-input>
+          
+          <ng-container *ngFor="let erro of mensagens_validacao.senha">
+            <span
+              *ngIf="formLogin.get('senha').hasError(erro.tipo) && (formLogin.get('senha').dirty || formLogin.get('senha').touched)" class="msg-erro">
+              {{erro.mensagem}}
+            </span>
+          </ng-container>
         </ion-item>
         <ion-label class="forget-password">Esqueceu a senha?</ion-label>
 

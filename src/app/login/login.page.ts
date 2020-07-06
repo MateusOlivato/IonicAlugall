@@ -12,6 +12,8 @@ export class LoginPage{
 
   public formLogin: FormGroup;
 
+  
+
   public mensagens_validacao = {
     email: [
       { tipo: 'required', mensagem: 'O campo E-mail é obrigatório.' },
@@ -36,7 +38,7 @@ export class LoginPage{
   }
 
   public login(){
-    
+
   }
 
 }
