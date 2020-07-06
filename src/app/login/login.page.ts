@@ -12,7 +12,7 @@ export class LoginPage{
 
   public formLogin: FormGroup;
 
-  
+
 
   public mensagens_validacao = {
     email: [
@@ -28,7 +28,7 @@ export class LoginPage{
 
   };
 
-  constructor(public formBuilder: FormBuilder) {this.formLogin = formBuilder.group({
+  constructor(public formBuilder: FormBuilder, public alertController: AlertController, public router: Router) {this.formLogin = formBuilder.group({
 
       //Aqui, declara-se todos os campos do formulário
       email: ['', Validators.compose([Validators.email, Validators.required])],
@@ -37,9 +37,43 @@ export class LoginPage{
     });
   }
 
-  public login(){
+  public login() {
+    if(this.formLogin.valid){
 
+      let email = this.formLogin.value.email;
+      let senha = this.formLogin.value.senha;
+
+      if (email == 'admin@admin.com' && senha == '123456') {
+        this.router.navigateByUrl('/tabs/tab2');
+        
+      }
+
+  }else{
+    this.alertFormInvalid();
   }
+
+}
+
+async alertFormInvalid() {
+  const alert = await this.alertController.create({
+    header: 'ERRO!',
+    message: 'Formulário invalido, confira os dados!',
+    buttons: ['OK']
+  });
+
+  await alert.present();
+}
+
+async alertUserInvalid() {
+  const alert = await this.alertController.create({
+    header: 'ERRO!',
+    message: 'Email ou senha invalidos, confira os dados!',
+    buttons: ['OK']
+  });
+
+  await alert.present();
+}
+
 
 }
 
