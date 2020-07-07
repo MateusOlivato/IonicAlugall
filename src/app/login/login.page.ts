@@ -12,8 +12,6 @@ export class LoginPage{
 
   public formLogin: FormGroup;
 
-
-
   public mensagens_validacao = {
     email: [
       { tipo: 'required', mensagem: 'O campo E-mail é obrigatório.' },
@@ -43,14 +41,17 @@ export class LoginPage{
       let email = this.formLogin.value.email;
       let senha = this.formLogin.value.senha;
 
-      if (email == 'admin@admin.com' && senha == '123456') {
-        this.router.navigateByUrl('/tabs/tab2');
-        
+      if (email == "admin@admin.com" && senha == "123456") {
+
+     this.router.navigate(['tabs']);        
+      }else{
+    this.alertFormInvalid();
       }
 
-  }else{
-    this.alertFormInvalid();
-  }
+    }else{
+      this.alertFormInvalid();
+    }
+
 
 }
 

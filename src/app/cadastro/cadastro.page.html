@@ -1,9 +1,69 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>cadastro</ion-title>
-  </ion-toolbar>
+<ion-header no-border>
+  <div class="login-header ion-padding">
+    Cadastrar
+  </div>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  <div class="center">
+<!---->
 
+<ion-item>
+  <ion-label position="stacked">Nome Completo</ion-label>
+  <ion-input type="text"></ion-input>
+</ion-item>
+
+<!---->
+
+<ion-item>
+  <ion-label position="stacked">Sexo</ion-label>
+  <ion-select>
+    <ion-select-option value="M">Masculino</ion-select-option>
+    <ion-select-option value="F">Feminino</ion-select-option> 
+    <ion-select-option value="NB">Não-binário</ion-select-option> 
+  </ion-select>
+</ion-item>
+
+  <!---->
+
+<ion-item>
+  <ion-label position="stacked">CPF</ion-label>
+  <ion-input type="text" max="12" placeholder="Digite seu CPF"></ion-input>
+</ion-item>
+
+  <!---->
+
+  <ion-item>
+    <ion-input position="stacked">Data De Nascimento</ion-input>
+    <ion-select display-format="DD/MM/AAAA" max="12" placeholder="selecione a data"></ion-select>
+  </ion-item>
+
+  <!---->
+
+  <ion-item>
+    <ion-label position="stacked">E-mail</ion-label>
+    <ion-input type="email"></ion-input>
+  </ion-item>
+
+    <!---->
+
+    <ion-item>
+      <ion-label position="stacked">Senha</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+
+    <!---->
+
+    <ion-item>
+      <ion-label position="stacked">Comfirmação de senha</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+
+    <!---->
+
+    <ion-button color="primary" class="ion-button-class" shape="round" fill="solid" size="large" expand="block" type="submit">Efetuar Cadastro!</ion-button>
+    <!---->
+    
+    <!---->
+  </div>
 </ion-content>
