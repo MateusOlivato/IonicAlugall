@@ -29,38 +29,6 @@
     text-align: center;
 }
 
-[heading-column-lr]{
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-}
-
-[big-heading]{
-    font-family:"Heebo-Bold" !important;
-    font-size: 30px !important;
-    color: #000000;
-    margin-left: 10px;
-}
-
-[small-heading]{
-    font-family:"Heebo-Regular" !important;
-    margin-left: auto;
-    padding-right: 40px;
-    font-size:15px;
-    color: #000000;    
-}
-
-ion-label{
-    color:#000;
-    opacity: .8;
-    font-size: 13px;
-    display:block;
-}
-
-ion-content{
-    background: #fafafa;
-}
-
 [transparent]{
     --background: transparent;
 }
@@ -75,47 +43,3 @@ ion-input{
     padding-left: 10px !important;
 }
 
-ion-item{
-    --highlight-color-focused:transparent;
-    --highlight-height: 0;
-    --highlight-color-invalid: #000;
-    --highlight-color-valid: #ddd;
-    --min-height: g5px;
-    --padding-start: 0;
-}
-
-[linespace]{
-    height: 30px;
-}
-
-ion-label{
-    color: #000;
-    opacity: .8;
-    font-size: 13px;
-    display: block;
-    margin-left: 2%;
-}
-
-ion-content{
-
-    --ion-background-color:#ffffff;
-}
-
-ion-icon{
-    color: #5C5C5C;
-}
-
-ion-button{
-    border: none;
-}
-
-ion-card{
-    background-color: #ffffff;
-}
-
-.msg-erro{
-    color: #ff0000;
-    font-size: 10px;
-    clear: both;
-    position: relative;    
-}
