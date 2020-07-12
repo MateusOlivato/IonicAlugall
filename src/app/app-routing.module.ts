@@ -2,10 +2,14 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path: '',
-    loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
-  },
+ // {
+   // path: '',
+   // loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+ // },  
+ {
+  path: '',
+  loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+},
   {
     path: 'pag-produto',
     loadChildren: () => import('./pag-produto/pag-produto.module').then( m => m.PagProdutoPageModule)
@@ -33,13 +37,8 @@ const routes: Routes = [
   {
     path: 'configuracoes',
     loadChildren: () => import('./configuracoes/configuracoes.module').then( m => m.ConfiguracoesPageModule)
-  },
-  {
-    path: 'tabs',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  }
-  
-  
+  },  
+
 ];
 @NgModule({
   imports: [

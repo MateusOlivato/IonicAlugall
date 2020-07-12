@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { AlertController } from '@ionic/angular';
-import { Router } from '@angular/router'
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +26,9 @@ export class LoginPage{
 
   };
 
-  constructor(public formBuilder: FormBuilder, public alertController: AlertController, public router: Router) {this.formLogin = formBuilder.group({
+  constructor(public formBuilder: FormBuilder, 
+              public alertController: AlertController, 
+              public router: Router) {this.formLogin = formBuilder.group({
 
       //Aqui, declara-se todos os campos do formulário
       email: ['', Validators.compose([Validators.email, Validators.required])],
@@ -35,25 +37,9 @@ export class LoginPage{
     });
   }
 
-  public login() {
-    if(this.formLogin.valid){
-
-      let email = this.formLogin.value.email;
-      let senha = this.formLogin.value.senha;
-
-      if (email == "admin@admin.com" && senha == "123456") {
-
-     this.router.navigate(['tabs']);        
-      }else{
-    this.alertFormInvalid();
-      }
-
-    }else{
-      this.alertFormInvalid();
-    }
-
-
-}
+  public login(){
+    
+  } 
 
 async alertFormInvalid() {
   const alert = await this.alertController.create({
@@ -73,6 +59,10 @@ async alertUserInvalid() {
   });
 
   await alert.present();
+}
+
+abrirCadastrar(){
+  this.router.navigate(['/cadastro'])
 }
 
 

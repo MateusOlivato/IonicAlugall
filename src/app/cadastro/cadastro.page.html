@@ -6,73 +6,54 @@
 
 
 <ion-content [fullscreen]="true">
-  <div class="center">
-
+  <div class="">
     <ion-card>
-
-      <ion-card-header no-border>
-          <h1>Cadastrar</h1>
+      <ion-card-header>
+        <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <h2>Cadastrar</h2>
       </ion-card-header>
 
-<!---->
-
-<ion-item transparent>
-  <ion-label position="stacked">Nome Completo</ion-label>
-  <ion-input type="text"></ion-input>
+<ion-item>
+  <ion-label position="stacked">Nome</ion-label>
+  <ion-input type="text" placeholder="Digite seu nome" [(ngModel)]="your_name"></ion-input>
 </ion-item>
 
-<!---->
+<ion-item>
+  <ion-label position="stacked">E-mail</ion-label>
+  <ion-input type="text" placeholder="Digite seu e-mail" [(ngModel)]="email_adress"></ion-input>
+</ion-item>
 
-<ion-item transparent>
-  <ion-label position="stacked">Sexo</ion-label>
-  <ion-select>
-    <ion-select-option value="M">Masculino</ion-select-option>
-    <ion-select-option value="F">Feminino</ion-select-option> 
-    <ion-select-option value="NB">Não-binário</ion-select-option> 
+<ion-item>
+  <ion-label position="stacked">Senha</ion-label>
+  <ion-input type="password" placeholder="Digite sua senha" [(ngModel)]="password"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="stacked">Confirmar senha</ion-label>
+  <ion-input type="password" placeholder="Digite a senha novamente" [(ngModel)]="confirm_password"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label>Gênero</ion-label>
+  <ion-select interface="popover" [(ngModel)]="gender">
+    <ion-select-option value="f">Feminino</ion-select-option>
+    <ion-select-option value="m">Masculino</ion-select-option>
+    <ion-select-option value="nb">Não-binário</ion-select-option>
   </ion-select>
 </ion-item>
 
-  <!---->
-
-<ion-item transparent>
-  <ion-label position="stacked">CPF</ion-label>
-  <ion-input type="text" max="12"></ion-input>
+<ion-item>
+  <ion-label position="floating">Data de nascimento</ion-label>
+  <ion-datetime displayFormat="DD/MM/YYYY" min="1945-01-01" max="2020-24-12" [(NgModel)]="date_birth"></ion-datetime>
 </ion-item>
 
-  <!---->
+</ion-card>
 
-  <ion-item transparent>
-    <ion-label position="stacked">Data nascimento</ion-label>
-    <ion-select display-format="DD/MM/AAAA" max="12" placeholder="DD/MM/AAAA"></ion-select>
-  </ion-item>
+<ion-button color="primary" class="ion-button-class" shape="round" fill="solid" size="large" expand="block" (click)="tryRegister()"
+[disabled]="disabledButton">Cadastrar</ion-button>
 
-  <!---->
-
-  <ion-item transparent>
-    <ion-label position="stacked">E-mail</ion-label>
-    <ion-input type="email"></ion-input>
-  </ion-item>
-
-    <!---->
-
-    <ion-item transparent>
-      <ion-label position="stacked">Senha</ion-label>
-      <ion-input type="password"></ion-input>
-    </ion-item>
-
-    <!---->
-
-    <ion-item transparent>
-      <ion-label position="stacked">Confirmação de senha</ion-label>
-      <ion-input type="password"></ion-input>
-    </ion-item>
-
-    <!---->
-
-    <ion-button color="primary" class="ion-button-class" shape="round" fill="solid" size="large" expand="block" type="submit">Efetuar Cadastro!</ion-button>
-    <!---->
-    
-    <!---->
-  </ion-card>
   </div>
 </ion-content>
+
