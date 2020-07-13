@@ -5,7 +5,7 @@ import 'rxjs/add/operator/timeout';
 
 @Injectable()
 export class AccessProviders{
-    server: string = 'http://localhost/IonicAlugall/api/';
+    server: string = 'http://localhost/alugall/api/';
 
     constructor(public http: HttpClient) { }
 

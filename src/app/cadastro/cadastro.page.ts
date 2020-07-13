@@ -74,7 +74,7 @@ export class CadastroPage implements OnInit {
                 loader.dismiss();
                 this.disabledButton = false;
                 this.presentToast(res.msg);
-                this.router.navigate(['/tabs'])
+                this.router.navigate(['/login'])
               }else{
                 loader.dismiss();
                 this.disabledButton = false;
