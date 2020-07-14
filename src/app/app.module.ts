@@ -13,6 +13,9 @@ import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AccessProviders } from './providers/access-providers';
+import {AngularFireModule} from '@angular/fire';
+import { environment } from 'src/environments/environment';
+import {AngularFireAuthModule} from '@angular/fire/auth';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +24,8 @@ import { AccessProviders } from './providers/access-providers';
     IonicModule.forRoot(), 
     AppRoutingModule, 
     IonicStorageModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [
     StatusBar,

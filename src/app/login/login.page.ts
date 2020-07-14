@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { AlertController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -11,6 +12,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class LoginPage{
 
   public formLogin: FormGroup;
+  
+  
 
   public mensagens_validacao = {
     email: [
