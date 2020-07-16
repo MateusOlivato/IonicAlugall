@@ -12,6 +12,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 })
 export class CadastroPage implements OnInit {
 
+
   your_name: string = "";
   email_adress: string = "";
   password: string = "";
