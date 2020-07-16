@@ -30,7 +30,8 @@ export class AppComponent {
       this.splashScreen.hide();
     });
 
-    this.storage.get('storage_xxx').then((res) =>{
+    //preparação para iniciar uma sessão do storage
+    this.storage.get('storage_01').then((res) =>{
       if(res == null){
         this.navCtrl.navigateRoot('/login');
       }else{
