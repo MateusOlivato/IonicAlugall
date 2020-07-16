@@ -15,34 +15,17 @@
       </div>
     </ion-card-header>
 
-      <form [formGroup]="formLogin" (ngSubmit)="login()">
-
       <ion-label> Faça login para explorar as ofertas do aplicativo</ion-label>
 
         <ion-item transparent>
           <ion-icon name="person"></ion-icon>
-          <ion-input formControlName="email" type="email" placeholder="Digite seu e-mail" ></ion-input>
-
-          <ng-container *ngFor="let erro of mensagens_validacao.email">
-            <span
-              *ngIf="formLogin.get('email').hasError(erro.tipo) && (formLogin.get('email').dirty || 
-              formLogin.get('email').touched)" class="msg-erro">
-              {{erro.mensagem}}
-            </span>
-          </ng-container>
+          <ion-input [(ngModel)]="email_adress" type="email" placeholder="Digite seu e-mail" ></ion-input>          
         </ion-item>
 
         <ion-item transparent>
           <ion-icon name="lock-closed"></ion-icon>
-          <ion-input formControlName="senha" type="password" placeholder="Digite sua senha"></ion-input>
-          
-          <ng-container *ngFor="let erro of mensagens_validacao.senha">
-            <span
-              *ngIf="formLogin.get('senha').hasError(erro.tipo) && (formLogin.get('senha').dirty || formLogin.get('senha').touched)" class="msg-erro">
-              {{erro.mensagem}}
-            </span>
-          </ng-container>
-        </ion-item>
+          <ion-input [(ngModel)]="password" type="password" placeholder="Digite sua senha"></ion-input>
+              </ion-item>
         <ion-label class="forget-password">Esqueceu a senha?</ion-label>
 
         <div linespace></div>
@@ -51,7 +34,6 @@
         <ion-label class="ion-text-center">Ainda não tem acesso? <span (click)="abrirCadastrar()" class="link-button span">Cadastrar</span> 
         </ion-label>
 
-      </form>
       </ion-card>
    </div>
 </ion-content>
