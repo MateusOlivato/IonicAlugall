@@ -54,10 +54,6 @@ export class LoginPage{
         password: this.password
       }
 
-      const loader = await this.loadingCtrl.create({
-        message: 'Por favor, aguarde...',   
-      });
-
       this.accsPrvds.postData(body, 'proses_api.php').subscribe((res:any)=> {
         if(res.success==true){
           this.disabledButton = false;
