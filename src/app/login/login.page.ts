@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastController, LoadingController, AlertController, NavController } from '@ionic/angular';
 import { AccessProviders } from '../providers/access-providers';
@@ -17,10 +16,7 @@ export class LoginPage{
   
   disabledButton;
 
-  public formLogin: FormGroup;  
-
-  constructor(public formBuilder: FormBuilder, 
-              public alertController: AlertController, 
+  constructor(public alertController: AlertController, 
               public router: Router,            
               private toastCtrl: ToastController,
               private loadingCtrl: LoadingController,
