@@ -13,12 +13,12 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 export class CadastroPage implements OnInit {
 
 
-  your_name: string = "";
-  email_adress: string = "";
-  password: string = "";
-  confirm_password: string = "";
-  gender: string = "";
-  date_birth: string = "";
+  nome: string = "";
+  email: string = "";
+  senha: string = "";
+  confirmarSenha: string = "";
+  genero: string = "";
+  dataNascimento: string = "";
 
   disabledButton;
 
@@ -38,19 +38,19 @@ export class CadastroPage implements OnInit {
     }
 
     async tryRegister(){
-      if(this.your_name==""){
+      if(this.nome==""){
           this.presentToast('O campo "Nome" não pode estar em branco!');
-      }else if(this.email_adress==""){
+      }else if(this.email==""){
         this.presentToast('O campo "E-mail" não pode estar em branco!');
-      }else if(this.password==""){
+      }else if(this.senha==""){
         this.presentToast('O campo "Senha" não pode estar em branco!');
-      }else if(this.confirm_password==""){
+      }else if(this.confirmarSenha==""){
         this.presentToast('O campo "Confirmar senha" não pode estar em branco!');
-      }else if(this.confirm_password!=this.password ){
+      }else if(this.confirmarSenha!=this.senha ){
         this.presentToast('As senhas não coincidem!');
-      }else if(this.gender==""){
+      }else if(this.genero==""){
         this.presentToast('O campo "Gênero" não pode estar em branco!');
-      }else if(this.date_birth==""){
+      }else if(this.dataNascimento==""){
         this.presentToast('O campo "Data de nascimento" não pode estar em branco!');
       }else{
         this.disabledButton=true;
@@ -62,12 +62,12 @@ export class CadastroPage implements OnInit {
         return new Promise(resolve => {
           let body = {
             aksi: 'proses_register',
-            your_name: this.your_name,
-            email_adress: this.email_adress,
-            date_birth: this.date_birth,
-            password: this.password,
-            confirm_password: this.confirm_password,
-            gender: this.gender
+            Nome: this.nome,
+            Email: this.email,
+            Nascimento: this.dataNascimento,
+            Senha: this.senha,
+            ConfirmarSenha: this.confirmarSenha,
+            Genero: this.genero
           }
 
           this.accsPrvds.postData(body, 'proses_api.php').subscribe((res:any)=> {

@@ -16,6 +16,7 @@ import { AccessProviders } from './providers/access-providers';
 
 import { environment } from 'src/environments/environment';
 
+import {NgxMaskIonicModule} from 'ngx-mask-ionic';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +25,8 @@ import { environment } from 'src/environments/environment';
     IonicModule.forRoot(), 
     AppRoutingModule, 
     IonicStorageModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    NgxMaskIonicModule.forRoot()    
   ],
   providers: [
     StatusBar,

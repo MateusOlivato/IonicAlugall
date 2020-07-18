@@ -17,27 +17,27 @@
 
 <ion-item>
   <ion-label position="stacked">Nome</ion-label>
-  <ion-input type="text" placeholder="Digite seu nome" [(ngModel)]="your_name"></ion-input>
+  <ion-input type="text" placeholder="Digite seu nome" [(ngModel)]="nome"></ion-input>
 </ion-item>
 
 <ion-item>
   <ion-label position="stacked">E-mail</ion-label>
-  <ion-input type="text" placeholder="Digite seu e-mail" [(ngModel)]="email_adress"></ion-input>
+  <ion-input type="text" placeholder="Digite seu e-mail" [(ngModel)]="email"></ion-input>
 </ion-item>
 
 <ion-item>
   <ion-label position="stacked">Senha</ion-label>
-  <ion-input type="password" placeholder="Digite sua senha" [(ngModel)]="password"></ion-input>
+  <ion-input type="password" placeholder="Digite sua senha" [(ngModel)]="senha"></ion-input>
 </ion-item>
 
 <ion-item>
   <ion-label position="stacked">Confirmar senha</ion-label>
-  <ion-input type="password" placeholder="Digite a senha novamente" [(ngModel)]="confirm_password"></ion-input>
+  <ion-input type="password" placeholder="Digite a senha novamente" [(ngModel)]="confirmarSenha"></ion-input>
 </ion-item>
 
 <ion-item>
   <ion-label>Gênero</ion-label>
-  <ion-select interface="popover" [(ngModel)]="gender">
+  <ion-select interface="popover" [(ngModel)]="genero">
     <ion-select-option value="Fem">Feminino</ion-select-option>
     <ion-select-option value="Masc">Masculino</ion-select-option>
     <ion-select-option value="Não-bin">Não-binário</ion-select-option>
@@ -46,8 +46,12 @@
 
 <ion-item>
   <ion-label position="stacked">Data de nascimento</ion-label>
-  <ion-input type="text" placeholder="Formato a informar: Dia/Mês/Ano" value="2012/12/12" [(ngModel)]="date_birth"></ion-input>
-  <!--<ion-datetime displayFormat="YYYY/MM/DD" [(NgModel)]="date_birth" min="1945-01-01" max="2020-12-31"></ion-datetime>-->
+  <ion-input
+   mask="00/00/0000"
+  [dropSpecialCharacters]="false"
+   type="text" 
+   placeholder="Formato a informar: Dia/Mês/Ano"
+   [(ngModel)]="dataNascimento"></ion-input>
 </ion-item>
 
 </ion-card>
