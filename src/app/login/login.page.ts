@@ -11,8 +11,8 @@ import { Storage } from '@ionic/storage';
 })
 export class LoginPage{
 
-  email_adress: string = "";
-  password: string = "";
+  Email: string = "";
+  Senha: string = "";
   
   disabledButton;
 
@@ -32,9 +32,9 @@ export class LoginPage{
   }
 
   async tentaLogin(){
-    if(this.email_adress==""){
+    if(this.Email==""){
       this.presentToast('O campo "E-mail" não pode estar em branco!')
-    }else if(this.password==""){
+    }else if(this.Senha==""){
       this.presentToast('O campo "Senha" não pode estar em branco!')
     }else{
       this.disabledButton = true;
@@ -46,8 +46,8 @@ export class LoginPage{
     return new Promise(async resolve => {
       let body = {
         aksi: 'proses_login',
-        email_adress: this.email_adress,
-        password: this.password
+        email_adress: this.Email,
+        password: this.Senha
       }
 
       this.accsPrvds.postData(body, 'proses_api.php').subscribe((res:any)=> {
