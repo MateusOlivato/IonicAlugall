@@ -26,7 +26,7 @@ export class Tab1Page implements OnInit{
     public navCtrl: NavController) {}
 
     ionViewDidEnter(){
-      this.storage.get('storage_01').then((res) =>{
+      this.storage.get('storage01').then((res) =>{
         console.log(res);
         this.datastorage = res;
         this.nome = this.datastorage.your_name;

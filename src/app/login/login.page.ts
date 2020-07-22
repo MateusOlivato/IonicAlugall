@@ -65,7 +65,7 @@ export class LoginPage{
       },(err)=>{
         loader.dismiss();
         this.disabledButton = false;
-        this.presentToast('Tempo de requisição esgotado!');                
+        this.presentToast('Usuário ou senha incorretos!');                
       });    
     });    
   }
