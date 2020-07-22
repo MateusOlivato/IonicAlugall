@@ -26,6 +26,7 @@
     "@ionic/angular": "^5.0.0",
     "@ionic/storage": "^2.2.0",
     "@pluritech/ion-mask": "^1.2.0",
+    "cordova-android": "8.1.0",
     "cordova-browser": "6.0.0",
     "firebase": "^7.16.0",
     "ngx-mask-ionic": "^1.1.2",
@@ -74,7 +75,8 @@
       "cordova-plugin-ionic-keyboard": {}
     },
     "platforms": [
-      "browser"
+      "browser",
+      "android"
     ]
   }
 }

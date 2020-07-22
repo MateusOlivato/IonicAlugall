@@ -31,7 +31,7 @@ export class AppComponent {
     });
 
     //preparação para iniciar uma sessão do storage
-    this.storage.get('storage_01').then((res) =>{
+    this.storage.get('storage01').then((res) =>{
       if(res == null){
         this.navCtrl.navigateRoot('/login');
       }else{

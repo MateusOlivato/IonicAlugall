@@ -11,8 +11,8 @@ import { Storage } from '@ionic/storage';
 })
 export class LoginPage{
 
-  Email: string = "";
-  Senha: string = "";
+  email_address: string = "";
+  password: string = "";
   
   disabledButton;
 
@@ -32,9 +32,9 @@ export class LoginPage{
   }
 
   async tentaLogin(){
-    if(this.Email==""){
+    if(this.email_address==""){
       this.presentToast('O campo "E-mail" não pode estar em branco!')
-    }else if(this.Senha==""){
+    }else if(this.password==""){
       this.presentToast('O campo "Senha" não pode estar em branco!')
     }else{
       this.disabledButton = true;
@@ -46,18 +46,18 @@ export class LoginPage{
     return new Promise(async resolve => {
       let body = {
         aksi: 'proses_login',
-        email_adress: this.Email,
-        password: this.Senha
+        email_address: this.email_address,
+        password: this.password
       }
 
       this.accsPrvds.postData(body, 'proses_api.php').subscribe((res:any)=> {
         if(res.success==true){
           this.disabledButton = false;
           this.presentToast('Login efetuado com sucesso!');
-          this.storage.set('storage_01', res.result); //relacionado com o app.components.ts
+          this.storage.set('storage01', res.result); //relacionado com o app.components.ts
           loader.dismiss();
-          this.router.navigate(['/tabs'])
-        }else{
+          this.router.navigateByUrl('');
+        }else if(res.success==false){
           this.disabledButton = false;
           loader.dismiss();
           this.presentToast('Usuário ou senha incorretos!');                

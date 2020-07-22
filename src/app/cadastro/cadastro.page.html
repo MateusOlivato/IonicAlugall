@@ -17,27 +17,27 @@
 
 <ion-item>
   <ion-label position="stacked">Nome</ion-label>
-  <ion-input type="text" placeholder="Digite seu nome" [(ngModel)]="Nome"></ion-input>
+  <ion-input type="text" placeholder="Digite seu nome" [(ngModel)]="your_name"></ion-input>
 </ion-item>
 
 <ion-item>
   <ion-label position="stacked">E-mail</ion-label>
-  <ion-input type="text" placeholder="Digite seu e-mail" [(ngModel)]="Email"></ion-input>
+  <ion-input type="text" placeholder="Digite seu e-mail" [(ngModel)]="email_address"></ion-input>
 </ion-item>
 
 <ion-item>
   <ion-label position="stacked">Senha</ion-label>
-  <ion-input type="password" placeholder="Digite sua senha" [(ngModel)]="Senha"></ion-input>
+  <ion-input type="password" placeholder="Digite sua senha" [(ngModel)]="password"></ion-input>
 </ion-item>
 
 <ion-item>
   <ion-label position="stacked">Confirmar senha</ion-label>
-  <ion-input type="password" placeholder="Digite a senha novamente" [(ngModel)]="ConfirmarSenha"></ion-input>
+  <ion-input type="password" placeholder="Digite a senha novamente" [(ngModel)]="confirm_password"></ion-input>
 </ion-item>
 
 <ion-item>
   <ion-label>Gênero</ion-label>
-  <ion-select interface="popover" [(ngModel)]="Genero">
+  <ion-select interface="popover" [(ngModel)]="gender">
     <ion-select-option value="Fem">Feminino</ion-select-option>
     <ion-select-option value="Masc">Masculino</ion-select-option>
     <ion-select-option value="Não-bin">Não-binário</ion-select-option>
@@ -49,9 +49,9 @@
   <ion-input
    mask="00/00/0000"
   [dropSpecialCharacters]="false"
-   type="text" 
+   type="string" 
    placeholder="Formato a informar: Dia/Mês/Ano"
-   [(ngModel)]="Nascimento"></ion-input>
+   [(ngModel)]="date_birth"></ion-input>
 </ion-item>
 
 </ion-card>

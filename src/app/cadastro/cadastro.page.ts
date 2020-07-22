@@ -13,12 +13,12 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 export class CadastroPage implements OnInit {
 
 
-  Nome: string = "";
-  Email: string = "";
-  Senha: string = "";
-  ConfirmarSenha: string = "";
-  Genero: string = "";
-  Nascimento: string = "";
+  your_name: string = "";
+  gender: string = "";
+  date_birth: string = ""; 
+  email_address: string = "";
+  password: string = "";
+  confirm_password: string = "";  
 
   disabledButton;
 
@@ -38,19 +38,19 @@ export class CadastroPage implements OnInit {
     }
 
     async tryRegister(){
-      if(this.Nome==""){
+      if(this.your_name==""){
           this.presentToast('O campo "Nome" não pode estar em branco!');
-      }else if(this.Email==""){
+      }else if(this.email_address==""){
         this.presentToast('O campo "E-mail" não pode estar em branco!');
-      }else if(this.Senha==""){
+      }else if(this.password==""){
         this.presentToast('O campo "Senha" não pode estar em branco!');
-      }else if(this.ConfirmarSenha==""){
+      }else if(this.confirm_password==""){
         this.presentToast('O campo "Confirmar senha" não pode estar em branco!');
-      }else if(this.ConfirmarSenha!=this.Senha ){
+      }else if(this.confirm_password!=this.password ){
         this.presentToast('As senhas não coincidem!');
-      }else if(this.Genero==""){
+      }else if(this.gender==""){
         this.presentToast('O campo "Gênero" não pode estar em branco!');
-      }else if(this.Nascimento==""){
+      }else if(this.date_birth=""){
         this.presentToast('O campo "Data de nascimento" não pode estar em branco!');
       }else{
         this.disabledButton=true;
@@ -62,18 +62,17 @@ export class CadastroPage implements OnInit {
         return new Promise(resolve => {
           let body = {
             aksi: 'proses_register',
-            Nome: this.Nome,
-            Email: this.Email,
-            Nascimento: this.Nascimento,
-            Senha: this.Senha,
-            ConfirmarSenha: this.ConfirmarSenha,
-            Genero: this.Genero
+            your_name: this.your_name,
+            email_address: this.email_address,
+            date_birth: this.date_birth,
+            password: this.password,
+            gender: this.gender
           }
 
           this.accsPrvds.postData(body, 'proses_api.php').subscribe((res:any)=> {
               if(res.success==true){
                 loader.dismiss();
-                this.disabledButton = false;
+                this.disabledButton = false;          
                 this.presentToast(res.msg);
                 this.router.navigate(['/login'])
               }else{
@@ -86,10 +85,12 @@ export class CadastroPage implements OnInit {
                 loader.dismiss();
                 this.disabledButton = false;
                 this.presentAlert('Tempo de requisição esgotado!');  
+                console.log(err);
           });
         });
       }
     }
+
 
     async presentToast(a){
       const toast = await this.toastCtrl.create({
@@ -108,7 +109,7 @@ export class CadastroPage implements OnInit {
           {
             text: 'Close',            
             handler: (blah) => {
-              console.log('Confirm Cancel: blah');
+              console.log('Cancelado');
             }
           }, {
             text: 'Tentar novamente',
