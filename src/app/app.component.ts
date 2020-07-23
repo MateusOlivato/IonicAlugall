@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -18,7 +18,8 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private storage:Storage,
-    public navCtrl: NavController
+    public navCtrl: NavController,
+    private router:Router
 
   ) {
     this.initializeApp();
@@ -35,7 +36,7 @@ export class AppComponent {
       if(res == null){
         this.navCtrl.navigateRoot('/login');
       }else{
-        this.navCtrl.navigateRoot('/tabs');
+        this.router.navigateByUrl('');
       }
     });
 

@@ -19,6 +19,7 @@ export class CadastroPage implements OnInit {
   email_address: string = "";
   password: string = "";
   confirm_password: string = "";  
+  telefone: string = "";  
 
   disabledButton;
 
@@ -46,6 +47,8 @@ export class CadastroPage implements OnInit {
         this.presentToast('O campo "Senha" não pode estar em branco!');
       }else if(this.confirm_password==""){
         this.presentToast('O campo "Confirmar senha" não pode estar em branco!');
+      }else if(this.telefone==""){
+        this.presentToast('O campo "Número de telefone" não pode estar em branco!');
       }else if(this.confirm_password!=this.password ){
         this.presentToast('As senhas não coincidem!');
       }else if(this.gender==""){
@@ -66,7 +69,8 @@ export class CadastroPage implements OnInit {
             email_address: this.email_address,
             date_birth: this.date_birth,
             password: this.password,
-            gender: this.gender
+            gender: this.gender,
+            telefone: this.telefone
           }
 
           this.accsPrvds.postData(body, 'proses_api.php').subscribe((res:any)=> {

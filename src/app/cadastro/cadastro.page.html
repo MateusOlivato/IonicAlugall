@@ -36,11 +36,22 @@
 </ion-item>
 
 <ion-item>
+  <ion-label position="stacked">Número de telefone</ion-label>
+  <ion-input type="text" 
+  placeholder="(Com código do país, DDD e o número)." 
+  [(ngModel)]="telefone"
+  mask="+00 (00)00000-0000"
+  [dropSpecialCharacters]="false">
+</ion-input>
+</ion-item>
+
+<ion-item>
   <ion-label>Gênero</ion-label>
   <ion-select interface="popover" [(ngModel)]="gender">
-    <ion-select-option value="Fem">Feminino</ion-select-option>
-    <ion-select-option value="Masc">Masculino</ion-select-option>
-    <ion-select-option value="Não-bin">Não-binário</ion-select-option>
+    <ion-select-option value="Feminino">Feminino</ion-select-option>
+    <ion-select-option value="Masculino">Masculino</ion-select-option>
+    <ion-select-option value="Não-binário">Não-binário</ion-select-option>
+    <ion-select-option value="Não informado">Prefiro não informar</ion-select-option>
   </ion-select>
 </ion-item>
 

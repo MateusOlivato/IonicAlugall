@@ -52,10 +52,10 @@ export class LoginPage{
 
       this.accsPrvds.postData(body, 'proses_api.php').subscribe((res:any)=> {
         if(res.success==true){
+          loader.dismiss();
           this.disabledButton = false;
           this.presentToast('Login efetuado com sucesso!');
           this.storage.set('storage01', res.result); //relacionado com o app.components.ts
-          loader.dismiss();
           this.email_address = "";
           this.password = "";
           this.router.navigateByUrl('');
