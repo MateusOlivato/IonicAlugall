@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ToastController, LoadingController, AlertController } from '@ionic/angular';
+import { ToastController, LoadingController, AlertController, NavController } from '@ionic/angular';
 import { AccessProviders } from '../providers/access-providers';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { Storage } from '@ionic/storage'
 
 @Component({
   selector: 'app-add-produto',
@@ -12,11 +12,16 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 
 export class AddProdutoPage implements OnInit {
 
-  NomeOf: string = "";
-  Desc: string = "";
-  Imagem: string = "";
-  Preco: string = "";
-  Categoria: string = "";
+  categoria: string = "";
+  nomeProduto: string = "";
+  descricaoProduto: string = "";
+  imagemProduto: string = "";
+  precoProduto: string = "";
+  confirmaEmail:string;
+  datastorage:any;
+  email:string;
+  qtdProdutos:number;
+  
 
   disabledButton;
 
@@ -25,28 +30,36 @@ export class AddProdutoPage implements OnInit {
               private toastCtrl: ToastController,
               private loadingCtrl: LoadingController,
               private alertCtrl: AlertController,
-              private accsPrvds: AccessProviders             
+              private accsPrvds: AccessProviders,
+              private storage:Storage             
     ) { }
 
-  ngOnInit() {
-  }
+    ngOnInit(){
 
-    ionViewDidEnter(){
-      this.disabledButton = false;
     }
 
-    async tryRegister(){
-      if(this.NomeOf==""){
-          this.presentToast('O campo do Nome não pode estar em branco!');
-      }else if(this.Desc==""){
-        this.presentToast('O campo da "Descrição" deve conter uma descrição');
-      }else if(this.Imagem==""){
-        this.presentToast('Deve ter uma imagem.');
-      }else if(this.Preco==""){
-        this.presentToast('O campo de "Preço" não pode estar em branco!');
-      }else if(this.Categoria==""){
+    ionViewDidEnter(){
+      this.storage.get('storage01').then((res)=>{
+        console.log(res);
+        this.datastorage = res;
+        this.email = this.datastorage.email_address;
+        this.qtdProdutos = this.datastorage.qtdProdutos;
+      })
+    }
+
+    async cadastraProduto(){
+      if(this.categoria==""){
         this.presentToast('O campo "Categoria" não pode estar em branco!');
-     
+      }else if(this.nomeProduto==""){
+        this.presentToast('O campo "Nome da oferta" não pode estar em branco!');
+      }else if(this.descricaoProduto==""){
+        this.presentToast('O campo "Descrição" não pode estar em branco!');
+      }else if(this.imagemProduto==""){
+        this.presentToast('Por favor, selecione uma imagem!');
+      }else if(this.precoProduto==""){
+        this.presentToast('O campo "Preço" não pode estar em branco!');
+      }else if(this.confirmaEmail!=this.email){
+        this.presentToast('O e-mail informado não corresponde como o do proprietário da conta!');
       }else{
         this.disabledButton=true;
         const loader = await this.loadingCtrl.create({
@@ -56,12 +69,12 @@ export class AddProdutoPage implements OnInit {
 
         return new Promise(resolve => {
           let body = {
-            aksi: 'proses_register',
-            NomeOf: this.NomeOf,
-            Desc: this.Desc,
-            Preco: this.Preco,
-            Imagem: this.Imagem,
-            Categoria: this.Categoria
+            aksi: 'proses_register_produto',
+            nomeProduto: this.nomeProduto,
+            descricaoProduto: this.descricaoProduto,
+            precoProduto: this.precoProduto,
+            imagemProduto: this.imagemProduto,
+            categoria: this.categoria
           }
 
           this.accsPrvds.postData(body, 'proses_api.php').subscribe((res:any)=> {
@@ -69,7 +82,7 @@ export class AddProdutoPage implements OnInit {
                 loader.dismiss();
                 this.disabledButton = false;
                 this.presentToast(res.msg);
-                this.router.navigate(['/pag-produto'])
+                this.router.navigateByUrl('');
               }else{
                 loader.dismiss();
                 this.disabledButton = false;
@@ -88,7 +101,7 @@ export class AddProdutoPage implements OnInit {
     async presentToast(a){
       const toast = await this.toastCtrl.create({
         message: a,
-        duration: 1500,
+        duration: 2500,
         position: 'top'
       });
       toast.present();
@@ -107,7 +120,7 @@ export class AddProdutoPage implements OnInit {
           }, {
             text: 'Tentar novamente',
             handler: () => {
-              this.tryRegister();
+              this.cadastraProduto();
             }
           }
         ]

@@ -15,7 +15,7 @@
   
     <ion-card-header>
       <ion-card-subtitle>Avaliação do usuário:</ion-card-subtitle>
-      <ion-card-title>Nome: {{nome}}</ion-card-title>
+      <ion-card-title>{{nome}}</ion-card-title>
       <ion-card-subtitle>ID: {{id}} </ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
@@ -23,8 +23,10 @@
       <p>Telefone: {{telefone}}</p>
       <p>Gênero: {{genero}}</p>
       <p>Anúncios ativos: {{qtdProdutos}}</p>
-      
+      <p></p>
   <ion-button size="block" routerLink='/anuncios'>Visualizar anúncios</ion-button>
+  <ion-button size="block" (click)="addProduto()">Adicionar produto</ion-button>
+  <p></p>
     </ion-card-content>
 
   </ion-card>

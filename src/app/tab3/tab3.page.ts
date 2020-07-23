@@ -52,6 +52,10 @@ ngOnInit(){
 
 } 
 
+addProduto(){
+  this.router.navigateByUrl('/add-produto')
+}
+
 async logoff(){
   this.storage.set('storage01', null);
   this.router.navigate(['/login'])

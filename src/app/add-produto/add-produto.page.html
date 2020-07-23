@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>Adicionar Produto</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,42 +14,48 @@
         <h2>Cadastrar</h2>
       </ion-card-header>
 
+      <ion-item>
+        <ion-label>Categoria</ion-label>
+        <ion-select interface="popover" [(ngModel)]="categoria">
+          <ion-select-option value="Ferramentas">Ferramentas</ion-select-option>
+          <ion-select-option value="Casa">Casa</ion-select-option>
+          <ion-select-option value="Cozinha">Cozinha</ion-select-option>
+          <ion-select-option value="Tecnologia">Tecnologia</ion-select-option>
+          <ion-select-option value="Outros">Outros</ion-select-option>
+        </ion-select>
+      </ion-item>
+
 <ion-item>
-  <ion-label position="stacked">Nome da Oferta</ion-label>
-  <ion-input type="text" placeholder="Digite o nome da oferta" [(ngModel)]="NomeOf"></ion-input>
+  <ion-label position="stacked">Nome do produto</ion-label>
+  <ion-input type="text" placeholder="Digite o nome do produto" [(ngModel)]="nomeProduto"></ion-input>
 </ion-item>
 
 <ion-item>
   <ion-label position="stacked">Descrição</ion-label>
-  <ion-input type="text" placeholder="Digite a descrição da oferta em questão" [(ngModel)]="Desc"></ion-input>
+  <ion-input type="text" placeholder="Descreva o produto e o estado atual" [(ngModel)]="descricaoProduto"></ion-input>
 </ion-item>
 
 <ion-item>
   <ion-label position="stacked">Imagem do Item</ion-label>
-  <ion-input type="text" placeholder="Imagem" [(ngModel)]="Imagem"></ion-input>
+  <ion-input type="text" placeholder="Imagem" [(ngModel)]="imagemProduto"></ion-input>
 </ion-item>
 
 <ion-item>
   <ion-label position="stacked">Preço desejado</ion-label>
-  <ion-input type="text" placeholder="Digite o preço desejado na oferta em questão" [(ngModel)]="Preco"></ion-input>
+  <ion-input type="number" placeholder="Digite o valor inicial(R$)" 
+  [(ngModel)]="precoProduto" mask="+00 (00) 00000-0000"
+  [dropSpecialCharacters]="false"></ion-input>
 </ion-item>
 
 <ion-item>
-  <ion-label>Categoria</ion-label>
-  <ion-select interface="popover" [(ngModel)]="Categoria">
-    <ion-select-option value="Ferramentas">Ferramentas</ion-select-option>
-    <ion-select-option value="Casa">Casa</ion-select-option>
-    <ion-select-option value="Cozinha">Cozinha</ion-select-option>
-    <ion-select-option value="Tecnologia">Tecnologia</ion-select-option>
-    <ion-select-option value="Outros">Outros</ion-select-option>
-  </ion-select>
+  <ion-label position="stacked">Confirmar e-mail</ion-label>
+  <ion-input type="text" placeholder="Confirme seu e-mail" [(ngModel)]="confirmaEmail"></ion-input>
 </ion-item>
-
 
 
 </ion-card>
 
-<ion-button color="primary" class="ion-button-class" shape="round" fill="solid" size="large" expand="block" (click)="tryRegister()"
+<ion-button color="primary" class="ion-button-class" shape="round" fill="solid" size="large" expand="block" (click)="cadastraProduto()"
 [disabled]="disabledButton">Cadastrar</ion-button>
 
 </div>
