@@ -30,6 +30,7 @@ if($postjson['aksi']=="proses_register"){
             email_address   = '$postjson[email_address]',
             password        = '$postjson[password]',
             gender          = '$postjson[gender]',
+            telefone        = '$postjson[telefone]',
             created_at      = '$today'        
             ");
         
@@ -54,12 +55,14 @@ if($postjson['aksi']=="proses_register"){
         'your_name'      	=> $logindata['your_name'], 
         'gender'          	=> $logindata['gender'], 
         'date_birth'        => $logindata['date_birth'],
-        'email_address'   	=> $logindata['email_address']              
+        'email_address'   	=> $logindata['email_address'],
+        'telefone'          => $logindata['telefone'],        
+        'qtdProdutos'       => $logindata['qtdProdutos']      
         );
     
 
     if($logindata){
-        $result = json_encode(array('success'=>true, 'msg'=> $data));
+        $result = json_encode(array('success'=>true, 'result'=> $data));
     }else{
         $result = json_encode(array('success'=>false, 'msg'=> 'Credenciais incorretas!'));
     }
