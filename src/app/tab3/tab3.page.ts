@@ -41,7 +41,7 @@ export class Tab3Page implements OnInit{
         this.genero = this.datastorage.gender;
         this.id = this.datastorage.id_user;
         this.telefone = this.datastorage.telefone;
-        this.qtdProdutos = this.datastorage.qtdprodutos;
+        this.qtdProdutos = this.datastorage.qtdProdutos;
       })
 
     }
