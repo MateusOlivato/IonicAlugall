@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ToastController, LoadingController, AlertController, NavController } from '@ionic/angular';
 import { AccessProviders } from '../providers/access-providers';
 import { Storage } from '@ionic/storage';
+import { SMS } from '@ionic-native/sms/ngx';
 
 @Component({
   selector: 'app-tabs',
