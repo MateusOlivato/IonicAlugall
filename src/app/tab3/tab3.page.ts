@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController, LoadingController, AlertController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab3',
@@ -14,11 +16,18 @@ export class Tab3Page {
   constructor(private router: Router,
     private toastCtrl: ToastController,
     private loadingCtrl: LoadingController,
-    private alertCtrl: AlertController) {}
+    private alertCtrl: AlertController,
+    private storage:Storage,
+    public navCtrl: NavController
+    ) {}
 
-logoff(){
-
+async logoff(){
+  this.storage.set('storage01', null);
+  this.router.navigate(['/login'])
 }
+
+
+
 
 async presentToast(a){
   const toast = await this.toastCtrl.create({

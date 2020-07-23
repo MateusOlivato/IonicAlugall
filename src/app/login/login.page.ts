@@ -56,6 +56,8 @@ export class LoginPage{
           this.presentToast('Login efetuado com sucesso!');
           this.storage.set('storage01', res.result); //relacionado com o app.components.ts
           loader.dismiss();
+          this.email_address = "";
+          this.password = "";
           this.router.navigateByUrl('');
         }else if(res.success==false){
           this.disabledButton = false;
