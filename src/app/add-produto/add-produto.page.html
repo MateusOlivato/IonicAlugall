@@ -17,11 +17,11 @@
       <ion-item>
         <ion-label>Categoria</ion-label>
         <ion-select interface="popover" [(ngModel)]="categoria">
-          <ion-select-option value="Ferramentas">Ferramentas</ion-select-option>
-          <ion-select-option value="Casa">Casa</ion-select-option>
-          <ion-select-option value="Cozinha">Cozinha</ion-select-option>
-          <ion-select-option value="Tecnologia">Tecnologia</ion-select-option>
-          <ion-select-option value="Outros">Outros</ion-select-option>
+          <ion-select-option value="1">Ferramentas</ion-select-option>
+          <ion-select-option value="2">Casa</ion-select-option>
+          <ion-select-option value="3">Cozinha</ion-select-option>
+          <ion-select-option value="4">Tecnologia</ion-select-option>
+          <ion-select-option value="5">Outros</ion-select-option>
         </ion-select>
       </ion-item>
 
@@ -43,13 +43,18 @@
 <ion-item>
   <ion-label position="stacked">Preço desejado</ion-label>
   <ion-input type="number" placeholder="Digite o valor inicial(R$)" 
-  [(ngModel)]="precoProduto" mask="+00 (00) 00000-0000"
+  [(ngModel)]="precoProduto" mask="R$00000,99"
   [dropSpecialCharacters]="false"></ion-input>
 </ion-item>
 
 <ion-item>
   <ion-label position="stacked">Confirmar e-mail</ion-label>
   <ion-input type="text" placeholder="Confirme seu e-mail" [(ngModel)]="confirmaEmail"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="stacked">Confirmar ID</ion-label>
+  <ion-input type="text" placeholder="Insira seu ID de usuário" [(ngModel)]="confirmaId"></ion-input>
 </ion-item>
 
 

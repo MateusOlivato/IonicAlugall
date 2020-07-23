@@ -21,6 +21,8 @@ export class AddProdutoPage implements OnInit {
   datastorage:any;
   email:string;
   qtdProdutos:number;
+  confirmaId:string;
+  id_user:string;
   
 
   disabledButton;
@@ -42,6 +44,7 @@ export class AddProdutoPage implements OnInit {
       this.storage.get('storage01').then((res)=>{
         console.log(res);
         this.datastorage = res;
+        this.id_user = this.datastorage.id_user;
         this.email = this.datastorage.email_address;
         this.qtdProdutos = this.datastorage.qtdProdutos;
       })
@@ -58,6 +61,12 @@ export class AddProdutoPage implements OnInit {
         this.presentToast('Por favor, selecione uma imagem!');
       }else if(this.precoProduto==""){
         this.presentToast('O campo "Preço" não pode estar em branco!');
+      }else if(this.confirmaEmail==""){
+        this.presentToast('A confirmação do seu e-mail não pode estar em branco!');
+      }else if(this.confirmaId==""){
+        this.presentToast('A confirmação do seu ID não pode estar em branco!');
+      }else if(this.confirmaId!=this.id_user){
+        this.presentToast('A confirmação do seu ID não corresponde!');
       }else if(this.confirmaEmail!=this.email){
         this.presentToast('O e-mail informado não corresponde como o do proprietário da conta!');
       }else{
@@ -74,7 +83,9 @@ export class AddProdutoPage implements OnInit {
             descricaoProduto: this.descricaoProduto,
             precoProduto: this.precoProduto,
             imagemProduto: this.imagemProduto,
-            categoria: this.categoria
+            categoria: this.categoria,
+            confirmaEmail: this.confirmaEmail,
+            confirmaId: this.confirmaId
           }
 
           this.accsPrvds.postData(body, 'proses_api.php').subscribe((res:any)=> {
