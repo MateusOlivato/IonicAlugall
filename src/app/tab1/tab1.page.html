@@ -56,18 +56,31 @@
     </ion-select>
   </ion-item>
 
-  <ion-button color="primary" class="ion-button-class" shape="round" fill="solid" size="medium" expand="block" (click)="filtrarBusca()">Filtrar busca!</ion-button>
+  <ion-button color="primary" class="ion-button-class" shape="round" fill="solid" size="medium" expand="block">Filtrar busca!</ion-button>
 </ion-card>
 
   <ion-card>
   <ion-list>
     <ion-item>
-      <img  class="imagem" src="https://images-americanas.b2w.io/spacey/2018/12/21/martelo1.jpg">
-      <ion-label>Produto</ion-label>
+      <img  class="imagem" src="https://madeinbrazil.fbitsstatic.net/img/p/guitarra-strato-tg530-woodstock-tagima-azul-laked-placid-blue-502-87267/273752.jpg?w=800&h=800&v=no-change">
+      <ion-label>Guitarra</ion-label>
       <ion-button routerLink='/pag-produto'>Ver</ion-button>
+    </ion-item>
+
+    <ion-item>
+      <img  class="imagem" src="data:image/jpeg;base64,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">
+      ">
+      <ion-label>Martelo</ion-label>
+      <ion-button>Ver</ion-button>
+    </ion-item>
+
+
+    <ion-item>
+      <img  class="imagem" src="https://madeinbrazil.fbitsstatic.net/img/p/guitarra-strato-tg530-woodstock-tagima-azul-laked-placid-blue-502-87267/273752.jpg?w=800&h=800&v=no-change">
+      <ion-label>Escada</ion-label>
+      <ion-button>Ver</ion-button>
     </ion-item>
   </ion-list>  
 </ion-card>
-
 
 </ion-content>
