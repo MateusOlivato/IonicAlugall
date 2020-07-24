@@ -71,19 +71,19 @@ if($postjson['aksi']=="proses_register"){
     
 }elseif($postjson['aksi']=="proses_register_produto"){
 
-    $verificaProdutos = mysqli_fetch_array(mysqli_query($mysqli, "call spQtdProdutos('$postjson[confirmaEmail]')"));
-    $recuperaId = mysqli_fetch_array(mysqli_query($mysqli, "call spIdEmail('$postjson[confirmaEmail]')"));
+    $verificaProdutos = mysqli_fetch_array(mysqli_query($mysqli, "call spCountProdutosUser('$postjson[confirmaEmail]')"));
 
-    if($verificaProdutos['qtdProdutos'] == "2"){
-        $result = json_encode(array('success'=>false, 'result'=> 'Máximo de produtos cadastrados atingidos!'));
+    if($verificaProdutos['emailUsuario']==2){
+        $result = json_encode(array('success'=>false, 'msg'=> 'Máximo de produtos cadastrados atingidos!'));
     }else{
+
         $insert = mysqli_query($mysqli, "INSERT INTO tbProdutos SET
         nomeProduto       = '$postjson[nomeProduto]',        
         Descricao         = '$postjson[descricaoProduto]',
         imgProduto        = '$postjson[imagemProduto]',
-        preco             = '$postjson[precoProduto]',
-        id_user           = '$recuperaId',
-        idCategoria       = '$postjson[categoria]';       
+        preco             = $postjson[precoProduto],
+        idCategoria       = $postjson[categoria],    
+        emailUsuario      = '$postjson[confirmaEmail]';
         ");
     
 
@@ -92,7 +92,6 @@ if($postjson['aksi']=="proses_register"){
     }else{
     $result = json_encode(array('success'=>false, 'msg'=> 'Falha no registro!'));
     }
-
 }
     echo $result;
 
