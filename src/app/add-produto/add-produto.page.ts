@@ -87,7 +87,7 @@ export class AddProdutoPage implements OnInit {
                 loader.dismiss();
                 this.disabledButton = false;
                 this.presentToast(res.msg);
-                this.storage.set('storage02', res.result);
+                this.storage.set('storage01', res.result);
                 this.router.navigateByUrl('');
               }else{
                 loader.dismiss();
