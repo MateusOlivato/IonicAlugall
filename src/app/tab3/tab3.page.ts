@@ -32,7 +32,7 @@ export class Tab3Page implements OnInit{
     ) {}
 
 
-    ionViewDidEnter(){
+    ionViewWillEnter(){
       this.storage.get('storage01').then((res)=>{
         console.log(res);
         this.datastorage = res;
