@@ -18,7 +18,7 @@ if($postjson['aksi']=="proses_register"){
                                                                WHERE email_address ='$postjson[email_address]'
                                                                "));
 
-    if($verificaEmail['email_address']==$postjson['email_address']){
+    if($verificaEmail==$postjson['email_address']){
         $result = json_encode(array('success'=>false, 'msg'=>"Endereço de e-mail já cadastrado! Favor escolher outro."));
     }else{                                                         
     
@@ -71,12 +71,6 @@ if($postjson['aksi']=="proses_register"){
     
 }elseif($postjson['aksi']=="proses_register_produto"){
 
-    $verificaProdutos = mysqli_fetch_array(mysqli_query($mysqli, "call spCountProdutosUser('$postjson[confirmaEmail]')"));
-
-    if($verificaProdutos['emailUsuario']==2){
-        $result = json_encode(array('success'=>false, 'msg'=> 'Máximo de produtos cadastrados atingidos!'));
-    }else{
-
         $insert = mysqli_query($mysqli, "INSERT INTO tbProdutos SET
         nomeProduto       = '$postjson[nomeProduto]',        
         Descricao         = '$postjson[descricaoProduto]',
@@ -89,12 +83,20 @@ if($postjson['aksi']=="proses_register"){
 
     if($insert){
     $result = json_encode(array('success'=>true, 'msg'=> 'Registrado com sucesso!'));
+    
+    $dataProd = array(
+        'nomeProduto'         => $postjson['nomeProduto'],    
+        'Descricao'           => $postjson['descricaoProduto'], 
+        'preco'          	  => $postjson['precoProduto'], 
+        'emailUsuario'        => $postjson['confirmaEmail'],
+        'idCategoria'   	  => $postjson['categoria']    
+        );
+
     }else{
     $result = json_encode(array('success'=>false, 'msg'=> 'Falha no registro!'));
     }
-}
     echo $result;
-
 }
+   
 
 ?>
